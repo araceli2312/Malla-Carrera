@@ -1,1 +1,74 @@
+/* estilos.css */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffe6f0;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
 
+h1 {
+  text-align: center;
+  color: #d63384;
+}
+
+#malla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.materia {
+  border: 2px solid #ffb3d1;
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #fff0f6;
+  transition: background-color 0.3s, transform 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+
+.materia:hover {
+  background-color: #ffe0ec;
+  transform: scale(1.02);
+}
+
+.materia.aprobada {
+  background-color: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.materia h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+  color: #b30059;
+}
+
+.materia .cuatrimestre {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.materia .bloqueado {
+  background-color: #ffd6e7;
+  border-color: #ff6699;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.materia button {
+  margin-top: 10px;
+  background-color: #ff66a3;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.materia button:hover {
+  background-color: #e60073;
+}
