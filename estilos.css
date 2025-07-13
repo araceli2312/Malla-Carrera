@@ -40,20 +40,29 @@ h1 {
 }
 
 .materia {
-  background-color: #f4c5cc;
   padding: 8px;
   margin: 5px 0;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
+  text-align: center;
 }
 
-.materia:hover {
-  opacity: 0.8;
+/* Materia activa, desbloqueada pero no aprobada */
+.materia.desbloqueada {
+  background-color: #f4c5cc;
 }
 
+/* Materia ya aprobada */
 .materia.aprobada {
   background-color: #722410;
   color: white;
   text-decoration: line-through;
+}
+
+/* Materia bloqueada (correlativas no cumplidas) */
+.materia.bloqueada {
+  background-color: #ddd;
+  color: #888;
+  cursor: not-allowed;
 }
