@@ -1,152 +1,140 @@
 const materias = {
   "Primer Año": {
     "1° Cuatrimestre": [
-      { nombre: "Lengua inglesa I", desbloquea: ["Lengua inglesa II"] },
-      { nombre: "Gramática inglesa I", desbloquea: ["Gramática inglesa II"] },
-      { nombre: "Fonética inglesa I", desbloquea: ["Fonética inglesa II"] },
-      { nombre: "Lengua española I", desbloquea: ["Lengua española II"] },
+      { nombre: "Lengua inglesa I", abre: ["Lengua inglesa II"] },
+      { nombre: "Gramática inglesa I", abre: ["Gramática inglesa II"] },
+      { nombre: "Fonética inglesa I", abre: ["Fonética inglesa II"] },
+      { nombre: "Lengua española I", abre: ["Lengua española II"] },
       { nombre: "Introducción al ejercicio profesional" },
       { nombre: "Cosmovisión bíblico-cristiana" }
     ],
     "2° Cuatrimestre": [
-      { nombre: "Lengua inglesa II", desbloquea: ["Lengua inglesa III"], requiere: ["Lengua inglesa I"] },
-      { nombre: "Gramática inglesa II", desbloquea: ["Gramática inglesa III"], requiere: ["Gramática inglesa I"] },
-      { nombre: "Fonética inglesa II", desbloquea: ["Fonética inglesa III"], requiere: ["Fonética inglesa I"] },
-      { nombre: "Lengua española II", requiere: ["Lengua española I"] },
-      { nombre: "Derecho constitucional y administrativo", desbloquea: ["Derecho civil"] },
+      { nombre: "Lengua inglesa II", abre: ["Lengua inglesa III"] },
+      { nombre: "Gramática inglesa II", abre: ["Gramática inglesa III"] },
+      { nombre: "Fonética inglesa II", abre: ["Fonética inglesa III"] },
+      { nombre: "Lengua española II" },
+      { nombre: "Derecho constitucional y Administrativo", abre: ["Derecho civil"] },
       { nombre: "Antropología Bíblico-cristiana" }
     ]
   },
   "Segundo Año": {
     "1° Cuatrimestre": [
-      { nombre: "Lengua inglesa III", desbloquea: ["Lengua inglesa IV"], requiere: ["Lengua inglesa II"] },
-      { nombre: "Gramática inglesa III", desbloquea: ["Gramática inglesa IV"], requiere: ["Gramática inglesa II"] },
-      { nombre: "Fonética inglesa III", desbloquea: ["Fonética inglesa IV"], requiere: ["Fonética inglesa II"] },
-      { nombre: "Historia de la civilización inglesa I", desbloquea: ["Historia de la civilización inglesa II"] },
-      { nombre: "Traducción I", desbloquea: ["Traducción II"] },
-      { nombre: "Derecho civil", desbloquea: ["Derecho comercial"], requiere: ["Derecho constitucional y administrativo"] },
+      { nombre: "Lengua inglesa III", abre: ["Lengua inglesa IV"] },
+      { nombre: "Gramática inglesa III", abre: ["Gramática inglesa IV"] },
+      { nombre: "Fonética inglesa III", abre: ["Fonética inglesa IV"] },
+      { nombre: "Historia de la civilización inglesa I", abre: ["Historia de la civilización inglesa II"] },
+      { nombre: "Traducción I", abre: ["Traducción II"] },
+      { nombre: "Derecho civil", abre: ["Derecho comercial"] },
       { nombre: "Fundamentos del cristianismo" }
     ],
     "2° Cuatrimestre": [
-      { nombre: "Lengua inglesa IV", desbloquea: ["Lengua inglesa V"], requiere: ["Lengua inglesa III"] },
-      { nombre: "Gramática inglesa IV", desbloquea: ["Gramática inglesa V"], requiere: ["Gramática inglesa III"] },
-      { nombre: "Fonética inglesa IV", desbloquea: ["Fonética inglesa V"], requiere: ["Fonética inglesa III"] },
-      { nombre: "Historia de la civilización inglesa II", desbloquea: ["Historia de los Estados Unidos de América"], requiere: ["Historia de la civilización inglesa I"] },
-      { nombre: "Traducción II", desbloquea: ["Traducción científico-técnica"], requiere: ["Traducción I"] },
-      { nombre: "Introducción a la literatura anglosajona", desbloquea: ["Literatura anglosajona"] },
+      { nombre: "Lengua inglesa IV", abre: ["Lengua inglesa V"] },
+      { nombre: "Gramática inglesa IV", abre: ["Gramática inglesa V"] },
+      { nombre: "Fonética inglesa IV", abre: ["Fonética inglesa V"] },
+      { nombre: "Historia de la civilización inglesa II", abre: ["Historia de los Estados Unidos de América"] },
+      { nombre: "Traducción II", abre: ["Traducción científico-técnica"] },
+      { nombre: "Introducción a la literatura anglosajona", abre: ["Literatura anglosajona"] },
       { nombre: "Principios de vida saludable" }
     ]
   },
   "Tercer Año": {
     "1° Cuatrimestre": [
-      { nombre: "Lengua inglesa V", desbloquea: ["Lengua inglesa VI"], requiere: ["Lengua inglesa IV"] },
-      { nombre: "Gramática inglesa V", desbloquea: ["Fonética inglesa VI"], requiere: ["Gramática inglesa IV"] },
-      { nombre: "Fonética inglesa V", desbloquea: ["Fonética inglesa VI"], requiere: ["Fonética inglesa IV"] },
-      { nombre: "Literatura anglosajona", desbloquea: ["Literatura anglosajona II"], requiere: ["Introducción a la literatura anglosajona"] },
-      { nombre: "Derecho comercial", requiere: ["Derecho civil"] },
-      { nombre: "Traducción científico-técnica", desbloquea: ["Traducción económica-financiera"], requiere: ["Traducción II"] },
+      { nombre: "Lengua inglesa V", abre: ["Lengua inglesa VI"] },
+      { nombre: "Gramática inglesa V", abre: ["Fonética inglesa VI"] },
+      { nombre: "Fonética inglesa V", abre: ["Fonética inglesa VI"] },
+      { nombre: "Literatura anglosajona", abre: ["Literatura anglosajona II"] },
+      { nombre: "Derecho comercial", abre: ["Literatura anglosajona II"] },
+      { nombre: "Traducción científico-técnica", abre: ["Traducción económica-financiera"] },
       { nombre: "Educación para la familia" }
     ],
     "2° Cuatrimestre": [
-      { nombre: "Lengua inglesa VI", desbloquea: ["Lengua inglesa VII"], requiere: ["Lengua inglesa V"] },
-      { nombre: "Fonética inglesa VI", requiere: ["Fonética inglesa V", "Gramática inglesa V"] },
-      { nombre: "Historia de los Estados Unidos de América", requiere: ["Historia de la civilización inglesa II"] },
-      { nombre: "Literatura anglosajona II", requiere: ["Literatura anglosajona", "Derecho comercial"] },
-      { nombre: "Derecho procesal civil y penal", desbloquea: ["Derecho laboral y seguridad social"] },
-      { nombre: "Traducción económica-financiera", desbloquea: ["Traducción jurídica", "Traducción literaria"], requiere: ["Traducción científico-técnica"] },
+      { nombre: "Lengua inglesa VI", abre: ["Lengua inglesa VII"] },
+      { nombre: "Fonética inglesa VI" },
+      { nombre: "Historia de los Estados Unidos de América" },
+      { nombre: "Literatura anglosajona II" },
+      { nombre: "Derecho procesal civil y penal", abre: ["Derecho laboral y seguridad social"] },
+      { nombre: "Traducción económica-financiera", abre: ["Traducción jurídica", "Traducción literaria"] },
       { nombre: "Interpretación bíblica de la historia" }
     ]
   },
   "Cuarto Año": {
     "1° Cuatrimestre": [
-      { nombre: "Lengua inglesa VII", desbloquea: ["Lengua inglesa VIII"], requiere: ["Lengua inglesa VI"] },
+      { nombre: "Lengua inglesa VII", abre: ["Lengua inglesa VIII"] },
       { nombre: "Recursos tecnológicos para traductores" },
-      { nombre: "Derecho laboral y seguridad social", requiere: ["Derecho procesal civil y penal"] },
-      { nombre: "Traducción jurídica", desbloquea: ["Práctica profesional"], requiere: ["Traducción económica-financiera"] },
-      { nombre: "Traducción literaria", desbloquea: ["Práctica profesional"], requiere: ["Traducción económica-financiera"] },
-      { nombre: "Introducción a la interpretación", desbloquea: ["Práctica de interpretación"] },
+      { nombre: "Derecho laboral y seguridad social" },
+      { nombre: "Traducción jurídica", abre: ["Práctica profesional"] },
+      { nombre: "Traducción literaria", abre: ["Práctica profesional"] },
+      { nombre: "Introducción a la interpretación", abre: ["Práctica de interpretación"] },
       { nombre: "Ciencia y fe" }
     ],
     "2° Cuatrimestre": [
-      { nombre: "Lengua inglesa VIII", requiere: ["Lengua inglesa VII"] },
+      { nombre: "Lengua inglesa VIII" },
       { nombre: "Seminario sobre nuevas especializaciones" },
-      { nombre: "Práctica de interpretación", requiere: ["Introducción a la interpretación"] },
+      { nombre: "Práctica de interpretación" },
       { nombre: "Ética y deontología" },
       { nombre: "Educación para la familia" },
-      { nombre: "Práctica profesional", requiere: ["Traducción jurídica", "Traducción literaria"] },
+      { nombre: "Práctica profesional" },
       { nombre: "Filosofía de la educación cristiana" }
     ]
   }
 };
 
+const estadoMaterias = {};
+
 function crearMalla() {
-  const contenedor = document.getElementById("malla");
+  const malla = document.getElementById("malla");
 
-  for (const anio in materias) {
+  for (const [anio, cuatrimestres] of Object.entries(materias)) {
     const anioDiv = document.createElement("div");
-    anioDiv.className = "anio";
-    const titulo = document.createElement("h2");
-    titulo.textContent = anio;
-    anioDiv.appendChild(titulo);
+    anioDiv.classList.add("anio");
 
-    for (const cuatri in materias[anio]) {
+    const tituloAnio = document.createElement("h2");
+    tituloAnio.textContent = anio;
+    anioDiv.appendChild(tituloAnio);
+
+    for (const [cuatrimestre, materiasLista] of Object.entries(cuatrimestres)) {
       const cuatriDiv = document.createElement("div");
-      cuatriDiv.className = "cuatrimestre";
-      const subtitulo = document.createElement("h3");
-      subtitulo.textContent = cuatri;
-      cuatriDiv.appendChild(subtitulo);
+      cuatriDiv.classList.add("cuatrimestre");
 
-      materias[anio][cuatri].forEach(m => {
-        const boton = document.createElement("button");
-        boton.textContent = m.nombre;
-        boton.className = "materia";
-        boton.dataset.nombre = m.nombre;
-        if (m.requiere) boton.dataset.requiere = JSON.stringify(m.requiere);
-        if (m.desbloquea) boton.dataset.desbloquea = JSON.stringify(m.desbloquea);
-        boton.disabled = m.requiere && m.requiere.length > 0;
-        boton.addEventListener("click", () => toggleAprobado(boton));
-        cuatriDiv.appendChild(boton);
-      });
+      const sub = document.createElement("h3");
+      sub.textContent = cuatrimestre;
+      cuatriDiv.appendChild(sub);
+
+      for (const materia of materiasLista) {
+        const matDiv = document.createElement("div");
+        matDiv.classList.add("materia");
+        matDiv.textContent = materia.nombre;
+
+        matDiv.addEventListener("click", () => toggleMateria(materia.nombre, matDiv, materia.abre));
+        cuatriDiv.appendChild(matDiv);
+      }
 
       anioDiv.appendChild(cuatriDiv);
     }
 
-    contenedor.appendChild(anioDiv);
+    malla.appendChild(anioDiv);
   }
 }
 
-function toggleAprobado(btn) {
-  const nombre = btn.dataset.nombre;
-  const desbloquea = JSON.parse(btn.dataset.desbloquea || "[]");
-  const requiere = JSON.parse(btn.dataset.requiere || "[]");
-
-  if (btn.classList.contains("aprobada")) {
-    btn.classList.remove("aprobada");
-    desbloquea.forEach(nombreDesbloqueado => {
-      const otros = document.querySelectorAll(`[data-nombre='${nombreDesbloqueado}']`);
-      otros.forEach(o => {
-        o.disabled = true;
-        o.classList.remove("aprobada");
-        toggleAprobado(o, true);
+function toggleMateria(nombre, elemento, abre = []) {
+  if (estadoMaterias[nombre]) {
+    estadoMaterias[nombre] = false;
+    elemento.classList.remove("aprobada");
+    if (abre) {
+      abre.forEach(m => {
+        const matEl = [...document.querySelectorAll('.materia')].find(el => el.textContent === m);
+        if (matEl) matEl.classList.remove("desbloqueada");
       });
-    });
-  } else {
-    if (requiere.some(r => !document.querySelector(`[data-nombre='${r}']`)?.classList.contains("aprobada"))) {
-      alert("Necesitás aprobar las materias correlativas primero.");
-      return;
     }
-    btn.classList.add("aprobada");
-    desbloquea.forEach(nombreDesbloqueado => {
-      const otros = document.querySelectorAll(`[data-nombre='${nombreDesbloqueado}']`);
-      otros.forEach(o => {
-        if (!o.disabled) return;
-        const requisitos = JSON.parse(o.dataset.requiere || "[]");
-        const todosAprobados = requisitos.every(r =>
-          document.querySelector(`[data-nombre='${r}']`)?.classList.contains("aprobada")
-        );
-        if (todosAprobados) o.disabled = false;
+  } else {
+    estadoMaterias[nombre] = true;
+    elemento.classList.add("aprobada");
+    if (abre) {
+      abre.forEach(m => {
+        const matEl = [...document.querySelectorAll('.materia')].find(el => el.textContent === m);
+        if (matEl) matEl.classList.add("desbloqueada");
       });
-    });
+    }
   }
 }
 
