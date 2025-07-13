@@ -1,62 +1,59 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #fff6ea;
   margin: 0;
-  padding: 20px;
+  padding: 2rem;
   color: #333;
 }
 
 h1 {
+  color: #9b1c31; /* cherry */
   text-align: center;
-  color: #722410;
+  margin-bottom: 2rem;
 }
 
 .anio {
-  margin-top: 40px;
+  border: 2px solid #f4c5cc;
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: #fff;
 }
 
 .anio h2 {
-  color: #722410;
-  border-bottom: 2px solid #722410;
-  padding-bottom: 5px;
+  color: #9b1c31; /* cherry */
+  margin-top: 0;
+}
+
+.cuatrimestre {
+  margin-bottom: 1rem;
 }
 
 .cuatrimestre h3 {
-  color: #f4c5cc;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.materias {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  color: #d36b87; /* más fuerte que el anterior #f4c5cc */
+  margin-bottom: 0.5rem;
 }
 
 .materia {
-  background-color: #ffffff;
-  border: 2px solid #f4c5cc;
-  border-radius: 10px;
-  padding: 10px 14px;
-  min-width: 220px;
+  padding: 0.6rem 1rem;
+  margin: 0.4rem 0;
+  background-color: #f4c5cc;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.3s;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .materia:hover {
-  background-color: #fbe1e6;
-  transform: scale(1.02);
-}
-
-.materia.bloqueado {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: auto;
+  background-color: #f1afbd;
 }
 
 .materia.aprobada {
-  background-color: #d4edda;
-  border-color: #28a745;
-  color: #155724;
   text-decoration: line-through;
+  color: #9b1c31; /* mismo que el título */
+  background-color: #f4c5cc;
 }
