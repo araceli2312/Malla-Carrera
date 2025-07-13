@@ -1,72 +1,114 @@
-// script.js
 const materias = [
-  { nombre: "Lengua inglesa I", cuatrimestre: "1° Año - 1° Cuatrimestre", abre: ["Lengua inglesa II"] },
-  { nombre: "Gramática inglesa I", cuatrimestre: "1° Año - 1° Cuatrimestre", abre: ["Gramática inglesa II"] },
-  { nombre: "Fonética inglesa I", cuatrimestre: "1° Año - 1° Cuatrimestre", abre: ["Fonética inglesa II"] },
-  { nombre: "Lengua española I", cuatrimestre: "1° Año - 1° Cuatrimestre", abre: ["Lengua española II"] },
-  { nombre: "Introducción al ejercicio profesional", cuatrimestre: "1° Año - 1° Cuatrimestre" },
-  { nombre: "Cosmovisión bíblico-cristiana", cuatrimestre: "1° Año - 1° Cuatrimestre" },
-
-  { nombre: "Lengua inglesa II", cuatrimestre: "1° Año - 2° Cuatrimestre", abre: ["Lengua inglesa III"], requiere: ["Lengua inglesa I"] },
-  { nombre: "Gramática inglesa II", cuatrimestre: "1° Año - 2° Cuatrimestre", abre: ["Gramática inglesa III"], requiere: ["Gramática inglesa I"] },
-  { nombre: "Fonética inglesa II", cuatrimestre: "1° Año - 2° Cuatrimestre", abre: ["Fonética inglesa III"], requiere: ["Fonética inglesa I"] },
-  { nombre: "Lengua española II", cuatrimestre: "1° Año - 2° Cuatrimestre", requiere: ["Lengua española I"] },
-  { nombre: "Derecho constitucional y Administrativo", cuatrimestre: "1° Año - 2° Cuatrimestre", abre: ["Derecho civil"] },
-  { nombre: "Antropología Bíblico-cristiana", cuatrimestre: "1° Año - 2° Cuatrimestre" },
-
-  // Puedes continuar agregando todas las demás materias aquí siguiendo este patrón
+  {
+    anio: "Primer Año",
+    cuatrimestres: [
+      {
+        titulo: "1° Cuatrimestre",
+        materias: [
+          { nombre: "Lengua inglesa I", abre: ["Lengua inglesa II"] },
+          { nombre: "Gramática inglesa I", abre: ["Gramática inglesa II"] },
+          { nombre: "Fonética inglesa I", abre: ["Fonética inglesa II"] },
+          { nombre: "Lengua española I", abre: ["Lengua española II"] },
+          { nombre: "Introducción al ejercicio profesional" },
+          { nombre: "Cosmovisión bíblico-cristiana" }
+        ]
+      },
+      {
+        titulo: "2° Cuatrimestre",
+        materias: [
+          { nombre: "Lengua inglesa II", requiere: ["Lengua inglesa I"], abre: ["Lengua inglesa III"] },
+          { nombre: "Gramática inglesa II", requiere: ["Gramática inglesa I"], abre: ["Gramática inglesa III"] },
+          { nombre: "Fonética inglesa II", requiere: ["Fonética inglesa I"], abre: ["Fonética inglesa III"] },
+          { nombre: "Lengua española II", requiere: ["Lengua española I"] },
+          { nombre: "Derecho constitucional y Administrativo", abre: ["Derecho civil"] },
+          { nombre: "Antropología Bíblico-cristiana" }
+        ]
+      }
+    ]
+  }
+  // Podés continuar con Segundo, Tercer y Cuarto año siguiendo este formato
 ];
 
 const estadoMaterias = {};
 
-function crearTarjeta(materia) {
-  const div = document.createElement("div");
-  div.className = "materia bloqueado";
-  div.id = materia.nombre;
+function crearMalla() {
+  const container = document.getElementById("malla");
 
-  const titulo = document.createElement("h3");
-  titulo.textContent = materia.nombre;
-  div.appendChild(titulo);
+  materias.forEach(anio => {
+    const divAnio = document.createElement("div");
+    divAnio.className = "anio";
 
-  const sub = document.createElement("p");
-  sub.className = "cuatrimestre";
-  sub.textContent = materia.cuatrimestre;
-  div.appendChild(sub);
+    const tituloAnio = document.createElement("h2");
+    tituloAnio.textContent = anio.anio;
+    divAnio.appendChild(tituloAnio);
 
-  const btn = document.createElement("button");
-  btn.textContent = "Aprobar";
-  btn.disabled = true;
-  btn.addEventListener("click", () => aprobarMateria(materia));
-  div.appendChild(btn);
+    anio.cuatrimestres.forEach(cuatri => {
+      const divCuatrimestre = document.createElement("div");
+      divCuatrimestre.className = "cuatrimestre";
 
-  document.getElementById("malla").appendChild(div);
-  estadoMaterias[materia.nombre] = { aprobado: false, btn, div, data: materia };
+      const tituloCuatri = document.createElement("h3");
+      tituloCuatri.textContent = cuatri.titulo;
+      divCuatrimestre.appendChild(tituloCuatri);
+
+      const materiasContainer = document.createElement("div");
+      materiasContainer.className = "materias";
+
+      cuatri.materias.forEach(materia => {
+        const div = document.createElement("div");
+        div.className = "materia bloqueado";
+        div.id = materia.nombre;
+        div.textContent = materia.nombre;
+
+        div.addEventListener("click", () => toggleAprobacion(materia));
+        materiasContainer.appendChild(div);
+
+        estadoMaterias[materia.nombre] = {
+          aprobado: false,
+          div,
+          data: materia
+        };
+      });
+
+      divCuatrimestre.appendChild(materiasContainer);
+      divAnio.appendChild(divCuatrimestre);
+    });
+
+    container.appendChild(divAnio);
+  });
+
+  actualizarEstados();
 }
 
-function actualizarEstado() {
-  materias.forEach(m => {
-    const { requiere } = m;
-    const estado = estadoMaterias[m.nombre];
+function actualizarEstados() {
+  for (const nombre in estadoMaterias) {
+    const estado = estadoMaterias[nombre];
+    const { requiere } = estado.data;
+
     const puedeAprobar = !requiere || requiere.every(r => estadoMaterias[r]?.aprobado);
     if (puedeAprobar) {
       estado.div.classList.remove("bloqueado");
-      estado.btn.disabled = false;
     } else {
       estado.div.classList.add("bloqueado");
-      estado.btn.disabled = true;
     }
-  });
+  }
 }
 
-function aprobarMateria(materia) {
+function toggleAprobacion(materia) {
   const estado = estadoMaterias[materia.nombre];
-  estado.aprobado = true;
-  estado.div.classList.add("aprobada");
-  estado.btn.remove();
-  actualizarEstado();
+  const { requiere } = materia;
+
+  const puedeAprobar = !requiere || requiere.every(r => estadoMaterias[r]?.aprobado);
+  if (!puedeAprobar) return;
+
+  estado.aprobado = !estado.aprobado;
+
+  if (estado.aprobado) {
+    estado.div.classList.add("aprobada");
+  } else {
+    estado.div.classList.remove("aprobada");
+  }
+
+  actualizarEstados();
 }
 
-window.onload = () => {
-  materias.forEach(crearTarjeta);
-  actualizarEstado();
-};
+window.onload = crearMalla;
