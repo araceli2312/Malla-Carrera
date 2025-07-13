@@ -25,8 +25,94 @@ const materias = [
         ]
       }
     ]
+  },
+  {
+    anio: "Segundo Año",
+    cuatrimestres: [
+      {
+        titulo: "1° Cuatrimestre",
+        materias: [
+          { nombre: "Lengua inglesa III", requiere: ["Lengua inglesa II"], abre: ["Lengua inglesa IV"] },
+          { nombre: "Gramática inglesa III", requiere: ["Gramática inglesa II"], abre: ["Gramática inglesa IV"] },
+          { nombre: "Fonética inglesa III", requiere: ["Fonética inglesa II"], abre: ["Fonética inglesa IV"] },
+          { nombre: "Historia de la civilización inglesa I", abre: ["Historia de la civilización inglesa II"] },
+          { nombre: "Traducción I", abre: ["Traducción II"] },
+          { nombre: "Derecho civil", requiere: ["Derecho constitucional y Administrativo"], abre: ["Derecho comercial"] },
+          { nombre: "Fundamentos del cristianismo" }
+        ]
+      },
+      {
+        titulo: "2° Cuatrimestre",
+        materias: [
+          { nombre: "Lengua inglesa IV", requiere: ["Lengua inglesa III"], abre: ["Lengua inglesa V"] },
+          { nombre: "Gramática inglesa IV", requiere: ["Gramática inglesa III"], abre: ["Gramática inglesa V"] },
+          { nombre: "Fonética inglesa IV", requiere: ["Fonética inglesa III"], abre: ["Fonética inglesa V"] },
+          { nombre: "Historia de la civilización inglesa II", requiere: ["Historia de la civilización inglesa I"], abre: ["Historia de los Estados Unidos de América"] },
+          { nombre: "Traducción II", requiere: ["Traducción I"], abre: ["Traducción científico-técnica"] },
+          { nombre: "Introducción a la literatura anglosajona", abre: ["Literatura anglosajona"] },
+          { nombre: "Principios de vida saludable" }
+        ]
+      }
+    ]
+  },
+  {
+    anio: "Tercer Año",
+    cuatrimestres: [
+      {
+        titulo: "1° Cuatrimestre",
+        materias: [
+          { nombre: "Lengua inglesa V", requiere: ["Lengua inglesa IV"], abre: ["Lengua inglesa VI"] },
+          { nombre: "Gramática inglesa V", requiere: ["Gramática inglesa IV"], abre: ["Fonética inglesa VI"] },
+          { nombre: "Fonética inglesa V", requiere: ["Fonética inglesa IV"], abre: ["Fonética inglesa VI"] },
+          { nombre: "Literatura anglosajona", requiere: ["Introducción a la literatura anglosajona"], abre: ["Literatura anglosajona II"] },
+          { nombre: "Derecho comercial", requiere: ["Derecho civil"], abre: ["Literatura anglosajona II"] },
+          { nombre: "Traducción científico-técnica", requiere: ["Traducción II"], abre: ["Traducción económica-financiera"] },
+          { nombre: "Educación para la familia" }
+        ]
+      },
+      {
+        titulo: "2° Cuatrimestre",
+        materias: [
+          { nombre: "Lengua inglesa VI", requiere: ["Lengua inglesa V"], abre: ["Lengua inglesa VII"] },
+          { nombre: "Fonética inglesa VI", requiere: ["Fonética inglesa V", "Gramática inglesa V"] },
+          { nombre: "Historia de los Estados Unidos de América", requiere: ["Historia de la civilización inglesa II"] },
+          { nombre: "Literatura anglosajona II", requiere: ["Literatura anglosajona", "Derecho comercial"] },
+          { nombre: "Derecho procesal civil y penal", abre: ["Derecho laboral y seguridad social"] },
+          { nombre: "Traducción económica-financiera", requiere: ["Traducción científico-técnica"], abre: ["Traducción jurídica", "Traducción literaria"] },
+          { nombre: "Interpretación bíblica de la historia" }
+        ]
+      }
+    ]
+  },
+  {
+    anio: "Cuarto Año",
+    cuatrimestres: [
+      {
+        titulo: "1° Cuatrimestre",
+        materias: [
+          { nombre: "Lengua inglesa VII", requiere: ["Lengua inglesa VI"], abre: ["Lengua inglesa VIII"] },
+          { nombre: "Recursos tecnológicos para traductores" },
+          { nombre: "Derecho laboral y seguridad social", requiere: ["Derecho procesal civil y penal"] },
+          { nombre: "Traducción jurídica", requiere: ["Traducción económica-financiera"], abre: ["Práctica profesional"] },
+          { nombre: "Traducción literaria", requiere: ["Traducción económica-financiera"], abre: ["Práctica profesional"] },
+          { nombre: "Introducción a la interpretación", abre: ["Práctica de interpretación"] },
+          { nombre: "Ciencia y fe" }
+        ]
+      },
+      {
+        titulo: "2° Cuatrimestre",
+        materias: [
+          { nombre: "Lengua inglesa VIII", requiere: ["Lengua inglesa VII"] },
+          { nombre: "Seminario sobre nuevas especializaciones" },
+          { nombre: "Práctica de interpretación", requiere: ["Introducción a la interpretación"] },
+          { nombre: "Ética y deontología" },
+          { nombre: "Educación para la familia" },
+          { nombre: "Práctica profesional", requiere: ["Traducción jurídica", "Traducción literaria"] },
+          { nombre: "Filosofía de la educación cristiana" }
+        ]
+      }
+    ]
   }
-  // Podés continuar con Segundo, Tercer y Cuarto año siguiendo este formato
 ];
 
 const estadoMaterias = {};
